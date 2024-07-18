@@ -1,0 +1,53 @@
+1.
+class Main {
+  public static void main(String[] args) {
+
+    try {
+
+      int divideByZero = 5 / 0;
+      System.out.println("Rest of code in try block");
+    }
+    
+    catch (ArithmeticException e) {
+      System.out.println("ArithmeticException => " + e.getMessage());
+    }
+  }
+}
+
+2.
+class Main {
+  public static void main(String[] args) {
+    try {
+      // code that generates exception
+      int divideByZero = 5 / 0;
+    }
+
+    catch (ArithmeticException e) {
+      System.out.println("ArithmeticException => " + e.getMessage());
+    }
+    
+    finally {
+      System.out.println("This is the finally block");
+    }
+  }
+}
+
+3.
+import java.io.*;
+
+class Main {
+  public static void findFile() throws IOException {
+
+    File newFile = new File("test.txt");
+    FileInputStream stream = new FileInputStream(newFile);
+  }
+
+  public static void main(String[] args) {
+    try {
+      findFile();
+    }
+    catch (IOException e) {
+      System.out.println(e);
+    }
+  }
+}
