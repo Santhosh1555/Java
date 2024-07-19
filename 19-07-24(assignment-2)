@@ -1,0 +1,199 @@
+1.1. Write java code for creating 3 methods called even, odd and 
+prime in parent class and override them from child class. The 
+parent class should print 1 to 20 range in all method, but child 
+print 1 to 30 array range in all methods. And access all the 
+methods using derived class object
+8.00 AM to 9.00 AM
+
+class temp {
+    public static void main(String[] args) {
+        try {
+            parent p = new child();
+            p.print();
+            p.print(1);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+}
+
+class parent {
+    void print() {
+        System.out.println("parent print function");
+    }
+}
+
+class child extends parent {
+    void print() {
+        System.out.println("child print function");
+    }
+
+    void print(int i) {
+        System.out.println("child parameterized print function");
+    }
+}
+
+2. Override a default constructor, which contains a=10,b=15 in java 
+using parametrized constructor which contains a=20,b=25. Create 
+a method called disp(). And call both the constructors associating 
+it with disp()
+
+public class Main {
+    int a, b;
+
+    // Default constructor
+    public Main() {
+        a = 10;
+        b = 15;
+    }
+
+    // Parameterized constructor
+    public Main(int x, int y) {
+        a = x;
+        b = y;
+    }
+
+    // Method to display values
+    public void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+
+    public static void main(String[] args) {
+        // Create an object using default constructor
+        Main obj1 = new Main();
+        obj1.disp();
+
+        // Create an object using parameterized constructor
+        Main obj2 = new Main(20, 25);
+        obj2.disp();
+    }
+}
+
+3. Java program to create a Base class with a method called ‘void 
+area(int a, int b)’ which print area of a square. Now override the 
+method from Derived class and make it print area of a rectangle
+
+public class Base {
+    // Method to print area of a square
+    public void area(int a) {
+        System.out.println("Area of a square: " + (a * a));
+    }
+}
+
+public class Derived extends Base {
+    // Method to print area of a rectangle
+    @Override
+    public void area(int a, int b) {
+        System.out.println("Area of a rectangle: " + (a * b));
+    }
+
+    public static void main(String[] args) {
+        Derived obj = new Derived();
+        // Calling the method from the base class
+        obj.area(5);
+        // Calling the overridden method from the derived class
+        obj.area(5, 10);
+    }
+}
+
+4.4. Write java code to overload a method called ‘int sum(int a, int b)’
+by the 3 ways.
+a) By increasing and decreasing no. of parameters
+b) By changing the data types of parameters
+c) By interchanging the parameters
+
+public class Main {
+    // Original method
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    // Overloading by increasing the number of parameters
+    public int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloading by decreasing the number of parameters
+    public int sum(int a) {
+        return a;
+    }
+
+    // Overloading by changing the data types of parameters
+    public double sum(double a, double b) {
+        return a + b;
+    }
+
+    // Overloading by interchanging the parameters (not possible in Java, as method signature is same)
+    // public int sum(int b, int a) { return b + a; } // This will not compile, as it's the same as the original method
+
+    public static void main(String[] args) {
+        Main obj = new Main();
+        System.out.println("Sum of 2 integers: " + obj.sum(5, 10));
+        System.out.println("Sum of 3 integers: " + obj.sum(5, 10, 15));
+        System.out.println("Sum of 1 integer: " + obj.sum(5));
+        System.out.println("Sum of 2 doubles: " + obj.sum(5.5, 10.5));
+    }
+}
+
+5.Create an interface called Tree and extend 2 classes from it called 
+Branch1 and Branch2. Tree should contain methods fruits(), 
+leaves() and flowers(), these methods contain 2,3,4 parameters respectively
+
+interface Tree {
+    void fruits(String fruit1, String fruit2);
+    void leaves(String leaf1, String leaf2, String leaf3);
+    void flowers(String flower1, String flower2, String flower3, String flower4);
+}
+
+// Class Branch1 implementing Tree
+class Branch1 implements Tree {
+    @Override
+    public void fruits(String fruit1, String fruit2) {
+        System.out.println("Branch1 has " + fruit1 + " and " + fruit2 + " fruits.");
+    }
+
+    @Override
+    public void leaves(String leaf1, String leaf2, String leaf3) {
+        System.out.println("Branch1 has " + leaf1 + ", " + leaf2 + ", and " + leaf3 + " leaves.");
+    }
+
+    @Override
+    public void flowers(String flower1, String flower2, String flower3, String flower4) {
+        System.out.println("Branch1 has " + flower1 + ", " + flower2 + ", " + flower3 + ", and " + flower4 + " flowers.");
+    }
+}
+
+// Class Branch2 implementing Tree
+class Branch2 implements Tree {
+    @Override
+    public void fruits(String fruit1, String fruit2) {
+        System.out.println("Branch2 has " + fruit1 + " and " + fruit2 + " fruits.");
+    }
+
+    @Override
+    public void leaves(String leaf1, String leaf2, String leaf3) {
+        System.out.println("Branch2 has " + leaf1 + ", " + leaf2 + ", and " + leaf3 + " leaves.");
+    }
+
+    @Override
+    public void flowers(String flower1, String flower2, String flower3, String flower4) {
+        System.out.println("Branch2 has " + flower1 + ", " + flower2 + ", " + flower3 + ", and " + flower4 + " flowers.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        branch1.fruits("Apple", "Banana");
+        branch1.leaves("Green", "Red", "Yellow");
+        branch1.flowers("Rose", "Lily", "Sunflower", "Daisy");
+
+        System.out.println();
+
+        Branch2 branch2 = new Branch2();
+        branch2.fruits("Mango", "Orange");
+        branch2.leaves("Blue", "Purple", "Pink");
+        branch2.flowers("Tulip", "Violet", "Poppy", "Lilac");
+    }
+}
